@@ -1,0 +1,29 @@
+Recuerde revisar siempre los logs!!!!!!!!!! para eso es usar estos comandos de shell para poder acercarse a los datos en un archivo de tamaño infinito.
+wc cuenta palabras: -l cuenta lineas. ej: wc -l archivo cuenta la cantidad de lineas en el archivo.
+grep es el buscador de palabras en un archivo: -i ignora mayusculas, -A muestra el "contexto", -E permite usar regexps, -v excluye el patron a buscar, -l es para filenames, -F no lo entiendo.
+sort es para ordenar los datos: normal ordena lexicograficamente, -n es para ordernar númericamente (1, 11, 111, 3, 4 vs 1,3,4,11,111),
+awk es un "lenguaje" para extraer datos de columnas. ej: awk -F, '{print $5}' indica imprimir la quinta columna.
+uniq -c cuenta cuanto se repitio una linea, solo retorna una.
+sed reemplaza un string por vacio o inserta cosas en el string
+head y tail son para ver los primeros o últimos datos de un archivo.
+
+otros comandos:
+time para ver cuanto demora en hacer algo. time [comando params]
+gnuplot hace gráficos rapidamente.
+history
+
+Trabajo:
+Vamos a ver el tema de integración continua. Test unitarios: ver si compila. Test de integración, vamos a ver inyecciones y esas cosas.
+Vamos a trabajar sobre data.csv que contiene datos: dia, horario.milisec, ip, dominio.
+1) ver top10 en ip con más queries -> 200.28.4.129 con 345920
+2) ver top10 dominios con más queries -> t13 con 2379162
+3) ver el comportamiento de t13 y elmostrador para ver si tienen solicitudes fuera de lo común.
+
+Solucion:
+awk -F, '/elmostrador/ {print $2}' data.csv | awk -F: '{print $1}' | sort | uniq -c >> elmostradorhora.txt
+awk -F, '/t13/ {print $2}' data.csv | awk -F: '{print $1}' | sort | uniq -c  >> t13hora.txt
+
+---0---
+
+Segunda parte:
+Crear comando "tailog" que reciba un file, un tiempo de espera en minutos, indicando si recibe [xip|xdom] y la lista con todos los [dom|ip] relacionados y retorna los valores almacenados en ese file, respecto a los datos indicados.

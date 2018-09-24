@@ -1,0 +1,25 @@
+CC4310 Site Reliability Engineering Workshop
+Pura pega de clases
+Programa: 
+	1.- Conceptos básicos.
+	2.- Sistemas de Monitoreo. Clásico: sistema de tres fases.
+	3.- Alertas. Qué hacer cuando algo falla? Guardias, turnos, las cosas se caen y hay que arreglarlos. Documentar bugs y esas cosas. Playbook. Análisis post-mortem.
+	4.- Real Life Project. Monitorear cosas de verdad, y ver que pasa con sus 3k querys por segundo.
+Cada clase tiene evaluación, porqué esa funciona. Los primeros son individuales, después son de 4 personas asignadas y rotando. Se comienzan en clases y se terminan en clases.
+
+1.- Intro
+La pega que más genera pega. Es básicamente el tipico sysadmin. Vienen más de los físicos, mientras que software viene más de los mátematicos. Plata obliga a dejar de pelear, programar cosas eficientes.
+Esperar a que nada fallará, pero que todo puede fallar.
+Tip: cuatro preguntas clásicas pa la pega.
+	1.- Si yo hago "%curl -l www.uchile.cl", ¿qué hace eso?
+Tip: optimice recursos. Utilice librerias y stackoverflow.
+Tip: % es base. # es superusuario.
+Desafio: hacer un SHELL.
+1) ejecuta comandos.
+	1.1) Secuencialmente (4)
+	1.2) Paralelo (&) (5)
+2) alcanzable desde el PATH (variables de ambiente)
+3) redirige entrada estandar (<) (6)
+4) redirige salida estandar (>) (7)
+5) redirige error estandar (1>&>)
+6) pipe (pasar el resultado de una funcion a otra como entrada)
