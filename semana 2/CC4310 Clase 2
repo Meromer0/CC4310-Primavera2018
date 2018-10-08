@@ -26,4 +26,4 @@ awk -F, '/t13/ {print $2}' data.csv | awk -F: '{print $1}' | sort | uniq -c  >> 
 ---0---
 
 Segunda parte:
-Crear comando "tailog" que reciba un file, un tiempo de espera en minutos, indicando si recibe [xip|xdom] y la lista con todos los [dom|ip] relacionados y retorna los valores almacenados en ese file, respecto a los datos indicados.
+Crear comando "tailog" que reciba un file, un tiempo de espera en minutos, indicando si recibe [xip|xdom] y la ip o el dom correspondiente para entregar una lista con todos los [dom|ip] relacionados y retorna los valores almacenados en ese file, respecto a los datos indicados. Usar 1007400 para probar con datos actuales.
