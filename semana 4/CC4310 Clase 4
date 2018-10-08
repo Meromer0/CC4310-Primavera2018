@@ -1,0 +1,20 @@
+tips:
+Patrones de diseño. Ya no somos artesanos del software, si no que usamos plantillas.
+-Factories: crean instancias ocultas de objetos.
+-Observer: el que mira una clase y manda evento si pasa algo.
+-Singleton: clase estatica, no se hacen news.
+-Template: se le indica como se le entrega la info.
+-Visitor: el que se pasea por las distintas clases, ej iterator.
+-Flyweight: una instancia multiusada, liviana.
+-Decorator:
+
+Moocking (?) : hacer servidores de palo. Probar con datos falsos, bases de datos, mensajes, etc. ¿Quién manda sms cuando está en fase de prueba?
+
+Inyección de Dependencias: Funciones en el software, cada cosa debe hacer solo una cosa. Ejemplos de Robot con Cuerpo, cambio el cuerpo del robot y las cosas que instruye el robot son las mismas, pero como las hace son distintas. Otro ejemplo es el de Weather, que cuando hace update crea un weatherService y este le entrega la información para updatear sus cosas: error, cada parte debería hacer sus propias cosas, por lo que update NO debe crear el weatherService / solución, crear un singleton en el constructor / better solución, recibir un singleton en el constructor y asociarlo a una variable de mi clase.
+¿De qué sirve? Sirve para crear una dependencia de testeo con mayor facilidad. Con el ejemplo de Robot, si el cuerpo tiene una funcionalidad que pide a Zigma instrucciones, puedo testearlo creando un cuerpo que hace solicitudes locales para poder testear.
+
+Trabajo: Terminar lo anterior, y hacer test.
+
+
+
+Resultados:
