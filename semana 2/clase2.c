@@ -46,7 +46,7 @@ void searchDatebyBlock(time_t tiempo_buscado, FILE **fp, int salto) {
 	char rest[1024];
 	size_t bufsize = 1024;
     char *buffer = (char *)malloc(bufsize * sizeof(char));
-	getline(&buffer, &bufsize,*fp);
+	size_t trash = getline(&buffer, &bufsize,*fp);
 	free(buffer);
 	if (0 < fscanf(*fp, "%d-%d-%d,%d:%d:%s", &year, &month, &day, &hour, &min, rest)) {
 		//printf("%d-%d-%d,%d:%d:%s\n", year, month, day, hour, min, rest);
@@ -106,7 +106,7 @@ void searchXip(FILE **fp, char *ip) {
 	int year, month, day, hour, min, seconds, mili;
 	char rest[1024];
 	while (fscanf(*fp, "%d-%d-%d,%d:%d:%d.%d,%s", &year, &month, &day, &hour, &min, &seconds, &mili, rest) != EOF) {
-		char *xip = strok(rest, ",");
+		char *xip = strtok(rest, ",");
 		if (strcmp(ip, xip) == 0) printf("%d-%d-%d,%d:%d:%d.%d,%s,%s\n", year, month, day, hour, min, seconds, mili, xip, rest);
 	}
 }
@@ -115,8 +115,8 @@ void searchXdom(FILE **fp, char *dom) {
 	int year, month, day, hour, min, seconds, mili;
 	char rest[1024];
 	while (fscanf(*fp, "%d-%d-%d,%d:%d:%d.%d,%s", &year, &month, &day, &hour, &min, &seconds, &mili, rest) != EOF) {
-		char *xip = strok(rest, ",");
-		if (strcmp(ip, rest) == 0) printf("%d-%d-%d,%d:%d:%d.%d,%s,%s\n", year, month, day, hour, min, seconds, mili, xip, rest);
+		char *xip = strtok(rest, ",");
+		if (strcmp(dom, rest) == 0) printf("%d-%d-%d,%d:%d:%d.%d,%s,%s\n", year, month, day, hour, min, seconds, mili, xip, rest);
 
 	}
 }
