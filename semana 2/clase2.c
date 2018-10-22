@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <assert.h>
 
 #define BLOCK_SIZE 4096
 
@@ -15,11 +14,11 @@ void searchXdom(FILE **fp, char *dom);
 int main(int argc, char *argv[]) {
 	FILE *fp;
 
-	assert(argv[1]!=NULL);
+
 	fp = fopen(argv[1], "r");
-	assert(fp!=NULL);
+
 	
-	assert(argv[2]!=NULL);
+
 	time_t t = time(NULL) - atoi(argv[2])*60;
 	fseek(fp, -BLOCK_SIZE, SEEK_END);
 	searchDatebyBlock(t, &fp, 2);
@@ -31,8 +30,7 @@ int main(int argc, char *argv[]) {
 		fclose(fp);
 		return 0;		
 	}
-	assert(argv[3] != NULL);
-	assert(argv[4] != NULL);
+
 	if (strcmp(argv[3],"xip") == 0)  searchXip(&fp,argv[4]);
 	else if (strcmp(argv[3],"xdom") == 0) searchXdom(&fp,argv[4]);
 	else printRest(&fp);
